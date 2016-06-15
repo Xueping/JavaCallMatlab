@@ -1,0 +1,10 @@
+function V_tp1 = update_V(I_rate,V,data_rate,U,A,num_item,K,lambda1,lambda4)
+
+for j=1:num_item
+    for p=1:K
+      rr=find(I_rate(:,j)==1);
+        
+        up=0;
+        for i= rr
+            up=up+U(i,p)*(data_rate(i,j)-U(i,:)*V(j,:)'-U(i,p)*V(j,p));
+        end
